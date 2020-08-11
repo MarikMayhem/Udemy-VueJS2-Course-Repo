@@ -42,15 +42,15 @@ export default {
     quote: Quote,
   },
   methods: {
-    increaseProgress() {
+    initializeProgress() {
       this.progress = this.quotes.length * 10;
     },
   },
   created() {
-    this.increaseProgress();
+    this.initializeProgress();
     eventBus.$on("quoteWasCreated", (quote) => {
       this.quotes.push(quote);
-      this.increaseProgress();
+      this.initializeProgress();
     });
   },
   watch: {
@@ -58,6 +58,7 @@ export default {
       const index = this.quotes.indexOf(val);
       if (index > -1) {
         this.quotes.splice(index, 1);
+        this.initializeProgress();
       }
     },
   },

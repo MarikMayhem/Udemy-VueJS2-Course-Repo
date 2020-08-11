@@ -19,6 +19,7 @@ export default {
 
 <style scoped>
 .quote {
+  cursor: pointer;
   border: 1px solid gray;
   font-family: "Arizonia", cursive;
   width: 20%;
